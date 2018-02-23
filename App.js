@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image} from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 
+import Iconfont from 'react-native-vector-icons/FontAwesome';
 import Index from './rn/pages/home';
 import Detail from './rn/pages/detail';
 import Icon from './rn/utils/images';
@@ -45,10 +46,11 @@ const RootTabs = TabNavigator({
     navigationOptions: {
       tabBarLabel: '首页',
       tabBarIcon: ({ tintColor }) => (
-        <Image
-          source={{uri: Icon.indexIcon}}
-          style={{width:25, height:25,tintColor: tintColor}}
-        />
+        <Iconfont name="home" size={20} color={tintColor}/>
+        // <Image
+        //   source={{uri: Icon.indexIcon}}
+        //   style={{width:25, height:25,tintColor: tintColor}}
+        // />
       ),
     },
   },

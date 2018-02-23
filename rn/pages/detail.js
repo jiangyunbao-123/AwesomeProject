@@ -8,9 +8,9 @@ import {
 } from 'react-native'
 // import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Util from '../utils/util'
-
 import Icon from 'react-native-vector-icons/FontAwesome';
-const myIcon = (<Icon name="rocket" size={30} color="#900" />);
+
+const myIcon = (<Icon name="user" size={30} color="#900" />);
 const myButton = (
   <Icon.Button name="facebook" backgroundColor="#3b5998" onPress={this.loginWithFacebook}>
     Login with Facebook
@@ -25,6 +25,31 @@ export default class Detail extends Component {
     headerTintColor: "#fff"
   }
 
+  constructor (props) {
+    super(props);
+    this.state = {
+      name: ""
+    }
+  }
+
+  fetchTest () {
+    fetch('http://localhost:8081/rn/mock/test1.json')
+    .then((response) => response.json())
+    .then((responseJson) => {
+      this.setState({
+        name:responseJson.name
+      })
+    })
+    .catch((error) => {
+      alert(error)
+      console.error(error);
+    });
+  }
+
+  componentDidMount () {
+    this.fetchTest();
+  }
+
   render () {
     const {state} = this.props.navigation;
     return (
@@ -32,6 +57,7 @@ export default class Detail extends Component {
         <StatusBar barStyle="light-content"/>
         <Text>我是详情页</Text>
         {myIcon}{myButton}
+        <Text>name: {this.state.name}</Text>
         <Text>{state.routeName}</Text>
         <Button
           onPress={() => this.props.navigation.navigate('Home')}
