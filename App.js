@@ -7,6 +7,7 @@ import Index from './rn/pages/home';
 import Detail from './rn/pages/detail';
 import Icon from './rn/utils/images';
 import Bopage from './rn/pages/bo';
+import Mepage from './rn/pages/me';
 
 const styles = StyleSheet.create({
   container: {
@@ -35,6 +36,11 @@ const styles = StyleSheet.create({
     return (
       <View style={[styles.tabContent]}>
         <Text style={styles.tabText}>{this.props}其他页面</Text>
+        <Text style={styles.tabText}>父节点是View的Text节点展示一</Text>
+        <Text numberOfLines={3} ellipsizeMode="head">
+          <Text>父节点是Text的Text节点展示一</Text>
+          <Text>父节点是Text的Text节点展示二父节点是Text的Text节点展示二父节点是Text的Text节点展示二父节点是Text的Text节点展示二</Text>
+        </Text>
       </View>
     );
   }
@@ -91,7 +97,7 @@ const RootTabs = TabNavigator({
     },
   },
   meTab:{
-    screen: BoScreen,
+    screen: Mepage,
     navigationOptions: {
       // tabBarVisible: false,  //隐藏tabbar
       tabBarLabel: '我',
@@ -145,7 +151,8 @@ const Navigator = StackNavigator(
      animationEnabled:true,  
     },  
     headerMode: "float",
-    mode:'card',  
+    mode:'card', 
+    // initialRouteName: "Detail"
   });
 
 export default Navigator;

@@ -33,7 +33,7 @@ export default class Detail extends Component {
   }
 
   fetchTest () {
-    fetch('http://localhost:8081/rn/mock/test1.json')
+    fetch('http://10.235.18.164:8081/rn/mock/test1.json')
     .then((response) => response.json())
     .then((responseJson) => {
       this.setState({
@@ -64,8 +64,11 @@ export default class Detail extends Component {
           title="Back to Home"
           color="#841584"
       />
-     
+        <View style={{backgroundColor:'red'}}>
+          <Text>dfsf</Text>
+        </View>
       </View>
     )
   }
 }
+
